@@ -2451,6 +2451,20 @@ ul.features li {
 				font-size: 1.25em;
 			}
 
+
+			ul.project_icons {
+				list-style: none;
+			}
+
+			ul.project_icons li {
+				display: inline-block;
+				padding: 0 1em 0 0;
+			}
+
+			ul.project_icons li .icon:before {
+				font-size: 2em;
+			}
+
 /* Table */
 
 	.table-wrapper {
@@ -2849,6 +2863,13 @@ ul.features li {
 
 		#main > section:first-child {
 			border-top: 0;
+		}
+
+		#main h4:hover {
+			color: #4acaa8;
+			-webkit-transition: all 0.5s ease;
+			-moz-transition: all 0.5s ease;
+			-o-transition: all 0.5s ease;
 		}
 
 /* Footer */
