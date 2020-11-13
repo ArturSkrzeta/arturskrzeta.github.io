@@ -653,12 +653,11 @@
 													<li>Flask</li>
 													<li>SQLite</li>
 												</ul>
-												<p>Constructing data pipline as following: <br>
-													Clients's App -> FLASK API -> Python -> SQLite<br>
-													1. Generating data in the Company A app.<br>
-													2. Requesting the data with API by Company B.<br>
-													3. Handling big data sets with Python in Company B.<br>
-													4. Inserting data into Company B database.
+												<p>Data Pipeline: <br>
+													1. Company A streams data to web-server.<br>
+													2. Company B requests web-server for receiving data stream.<br>
+													3. Company B process the inflowing data.<br>
+													4. Company B feeds database.
 												</p>
 											</div>
 										</article>
