@@ -1,4 +1,4 @@
-	<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 
 <html>
 	<head>
@@ -6,24 +6,24 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+
 	</head>
 	<body class="is-preload">
 
 		<!-- Header -->
 			<section id="header">
 				<header>
-					<span class="image avatar"><a href="https://arturskrzeta.github.io/"><img src="images/avatar.png" alt="" style="margin-bottom:0px;"/></a></span>
-					<h1 id="logo"><a href="https://arturskrzeta.github.io/">Artur Skrzeta</a></h1>
+					<span class="image avatar"><a href="https://arturskrzeta.github.io"><img src="images/avatar.png" alt="" /></a></span>
+					<h1 id="logo"><a href="https://arturskrzeta.github.io">Artur Skrzeta</a></h1>
 					<p>Data Analyst<br />
 					+4 years experience</p>
 				</header>
 				<nav id="nav">
 					<ul>
-						<li><a href="#one" class="active">Intro</a></li>
-						<li><a href="#two">Features</a></li>
-						<li><a href="#three">Demo</a></li>
-						<li><a href="#four">Setup</a></li>
-						<li><a href="#five">Source Code</a></li>
+						<li><a href="#one" class="active">About</a></li>
+						<li><a href="#two">Skills</a></li>
+						<li><a href="#three">Projects</a></li>
+						<li><a href="#four">Me</a></li>
 					</ul>
 				</nav>
 				<footer>
@@ -46,1361 +46,19 @@
 							<section id="one">
 								<div class="container">
 									<header class="major">
-										<h2>Learn SQL Application</h2>
-
-										<h3>Intro</h3>
-
-										<p style="text-align: justify;">SQL is the declarative lanuguage which we use to say what we want to get and computer needs to figure out the computation tasks to provide quieried result.
-											In this post I put my notes and examples that helps me to understand different aspects of SQL. There is also the application for learning SQL demonstrated in the <a href="#three"><u>Demo</u></a> section and its source code linked below.</p>
-
-										<h5>In this section I describe following concepts:</h5>
-										<ul>
-											<a href="#primary_and_foreign_key"><li>Primary and foreign key</li></a>
-											<a href="#query_types"><li>Query types</li></a>
-											<a href="#constraints"><li>Constraints</li></a>
-											<a href="#stored_procedures"><li>Stored procedures</li></a>
-											<a href="#database_normalization"><li>Database normalization</li></a>
-											<a href="#one_to_many-many"><li>One-to-many</li></a>
-											<a href="#many_to_many"><li>Many-to-many</li></a>
-											<a href="#variables"><li>Variables</li></a>
-											<a href="#oltp_and_olap"><li>OLTP and OLAP</li></a>
-											<a href="#functions"><li>Functions</li></a>
-											<a href="#window_functions"><li>Window functions</li></a>
-										</ul>
-
-										<h5>Also some SQL syntax elements:</h5>
-										<ul>
-											<a href="#like"><li>LIKE</li></a>
-											<a href="#index"><li>INDEX</li></a>
-											<a href="#view"><li>VIEW</li></a>
-											<a href="#distinct"><li>DISTINCT</li></a>
-											<a href="#join"><li>JOIN</li></a>
-											<a href="#self_join"><li>SELF JOIN</li></a>
-											<a href="#using"><li>USING</li></a>
-											<a href="#union"><li>UNION</li></a>
-											<a href="#except"><li>EXCEPT</li></a>
-											<a href="#intersect"><li>INTERSECT</li></a>
-											<a href="#order_by"><li>ORDER BY</li></a>
-											<a href="#limit"><li>LIMIT</li></a>
-											<a href="#top"><li>TOP</li></a>
-											<a href="#where"><li>WHERE</li></a>
-											<a href="#case"><li>CASE</li></a>
-											<a href="#group_by"><li>GROUP BY</li></a>
-											<a href="#having"><li>HAVING</li></a>
-											<a href="#in"><li>IN</li></a>
-											<a href="#over"><li>OVER</li></a>
-											<a href="#offset"><li>OFFSET</li></a>
-											<a href="#fetch"><li>FETCH</li></a>
-											<a href="#exist"><li>EXISTS</li></a>
-										</ul>
-
-										<h5>Terminology and general aspects</h5>
-										<ul>
-											<li id="primary_and_foreign_key"><b>Primary key</b> - a column or columns combination that idetifies a specific row uniquely. It implies NOT NULL constraint and hast to be UNIQUE.</li>
-											<li><b>Foreign key</b> - a column that contains a primary key of a record from another table. This way we build relationship between tables.
-												<br><br>
-												<table>
-												<tr style="background-color: #223639; color: #ffff;">
-													<td>
-													customers<br>
-													- <u>customer_id: <span style="color:#00ffea;">pk</span> integer</u><br>
-													- phone: string<br>
-													- email: string
-													</td>
-													<td>
-													orders<br>
-													- order_id: integer<br>
-													- status: string<br>
-													- <u>customer_id: <span style="color:#00ffea;">fk</span> integer</u>
-													</td>
-												</tr>
-												</table>
-												- In above example pk stands for primary key and fk stands for foreign key.<br>
-												- In one to many relationship: one customer can have many orders, so we can find one customer multiple times in the orders table.<br>
-												- As per one to many relationship, one order cannot have multiple customers.<br>
-												<span style="font-size:14px;">orderd table</span>
-												<table style="font-size:16px;">
-													<thead>
-														<tr>
-															<th>order_id</th>
-															<th>status</th>
-															<th>customer_id</th>
-														</tr>
-													</thead>
-													<tbody>
-														<tr>
-															<td>1</td>
-															<td>completed</td>
-															<td>1</td>
-														</tr>
-														<tr>
-															<td>2</td>
-															<td>completed</td>
-															<td>1</td>
-														</tr>
-														<tr>
-															<td>3</td>
-															<td>cancelled</td>
-															<td>3</td>
-														</tr>
-														<tr>
-															<td>4</td>
-															<td>pending</td>
-															<td>1</td>
-														</tr>
-													</tbody>
-												</table>
-											</li>
-											<li>Db engine executes query in the sequence as below:
-												<br>
-												1. FROM, JOIN - it determines data table(s).<br>
-												2. WHERE - records filtering.<br>
-												3. GROUP BY - records grouping.<br>
-												4. HAVING  - groups filtering.<br>
-												5. SELECT - columns filtering.<br>
-												6. ORDER BY - results sorting.<br>
-											</li>
-											<li id="query_types">There are different types of SQL queries:
-												<br>
-												1. <b>DQL</b> - Data Query Language</b>:<br>
-												&nbsp&nbsp&nbsp&nbsp&nbsp- <code>SELECT</code>.<br>
-												2. <b>DML</b> – Data Manipulation Language:<br>
-												&nbsp&nbsp&nbsp&nbsp&nbsp- <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>.<br>
-												3. <b>DDL</b> – Data Definition Language:<br>
-												&nbsp&nbsp&nbsp&nbsp&nbsp- <code>CREATE</code>, <code>ALTER</code>, <code>DROP</code>, <code>RENAME</code>, <code>TRUNCATE</code>.<br>
-												4. <b>DCL</b> – Data Control Language:<br>
-												&nbsp&nbsp&nbsp&nbsp&nbsp- <code>GRANT</code>, <code>REVOKE</code>.<br>
-												5. <b>TCL</b> - Transaction Control Language:<br>
-												&nbsp&nbsp&nbsp&nbsp&nbsp- <code>COMMIT</code>, <code>ROLLBACK</code>, <code>SAVEPOINT</code>.<br>
-											</li>
-											<li id="constraints"><b>Constraints</b> - we put the as the limits on the data types of the table. It can be specified while creating or altering the table statement.
-													Here they are:
-													<br>
-													- NOT NULL prevents from keeping nulls in the column.<br>
-													- CHECK limits the value range that can placed in the column for instance:<br>
-													 	&nbsp&nbsp&nbspAge INTEGER, CHECK (AGE>=18).<br>
-													- DEFAULT provides default value to all records unless other value specified.<br>
-													- UNIQUE prevents from storing duplicates within a column.<br>
-													- PRIMARY KEY sets pk on a column.<br>
-													- FOREIGN KEY sets fk indicating pk of a table in the relationship.<br>
-											</li>
-											<li><b>Data integrity</b> - defines the accuracy as well as the consistency of the data stored in a database.
-													Once data integrity ensured then any addition or deletion of data from the table will not create any mismatch in the relationship of the tables.
-											</li>
-											<li id="stored_procedures"><b>Stored procedure</b> - saved SQL code so that it can be reused anytime with or without passed parameters:
-												<br>
-												- stored procedure syntax:
-<!-- start -->
-<pre>
-CREATE PROCEDURE procedure_name
-AS
-sql_statement
-GO;
-</pre>
-<!-- end -->
-												- executing stored procedure:
-<!-- start-->
-<pre>
-EXEC procedure_name
-</pre>
-<!-- end -->
-												- here how it looks like with parameters:
-<!-- start -->
-<pre>
-CREATE PROCEDURE SelectAllEmployees <span style="background-color:#3976b3;">@City nvarchar(30)</span>, <span style="background-color:#3976b3;">@PostalCode nvarchar(10)</span>
-AS
-SELECT * FROM employees WHERE City = <span style="background-color:#3976b3;">@City</span> AND PostalCode = <span style="background-color:#3976b3;">@PostalCode</span>
-GO;
-</pre>
-<!-- end -->
-												- calling it with parameters:
-<!-- start -->
-<pre>
-EXEC SelectAllCustomers <span style="background-color:#3976b3;">@City = 'Cracow'</span>, <span style="background-color:#3976b3;">@PostalCode = '30-708'</span>;
-</pre>
-<!-- end -->
-												- They can be used as a modular programming which means creating once, storing and calling many times whenever it's required.<br>
-												- This supports faster overall query performance.<br>
-												- There is also such thing as <b>recursive stored procedure</b> which calls itself until it reaches some boundary condition. It allows to reuse the same code any number of times.
-											</li>
-										</ul>
-
-										<h5 id="database_normalization">Database Normalization</h5>
-										<ul>
-											<li><b>Normalization</b> is the db designing process where we aim for minimizing any data redundancy.
-												Redundancy of data means there are multiple copies of the same information spread over multiple locations in the same database.
-											</li>
-											<li>There are 3 forms of the normalizaton where each consecutive normal form depends on the previous one:
-												<br>
-												✓ First normal form (1 NF),<br>
-												✓ Second normal form (2 NF),<br>
-												✓ Third normal form (3 NF),<br>
-												where db is considered the third normal form if it meets the requirements of the first 3 normal forms.
-											</li>
-											<li>In <b>1 NF</b> wa aim to keep only atomic information. Here is the example which violates the 1NF as it contains more than one value for the department column:
-												<br><br>
-												<span>Assignment table</span>
-												<table>
-													<tr>
-														<td>id</td>
-														<td>name</td>
-														<td>age</td>
-														<td>department</td>
-													</tr>
-													<tr>
-														<td>1</td>
-														<td>Artur</td>
-														<td>20</td>
-														<td>IT, DevOps</td>
-													</tr>
-													<tr>
-														<td>2</td>
-														<td>John</td>
-														<td>40</td>
-														<td>IT, DevOps, DataLab</td>
-													</tr>
-												</table>
-												- Definitely we should be avoiding breaking down department column into a set of new columns like department1, department2, department3. This is what we call <b>repeating groups</b> and it's one of the biggest design error.<br>
-												- In order to reach 1 NF, we need to split the table into two tables so that each record can be unique and each cell contains an atomic value:
-												<br><br>
-												<span>Departments table and assignment table</span>
-												<table>
-													<tr>
-
-														<td>
-															<table style="width:15%;">
-																<tr>
-																	<td>dep_id</td>
-																	<td>dep_name</td>
-																</tr>
-																<tr>
-																	<td>1</td>
-																	<td>IT</td>
-																	<td>
-																</tr>
-																<tr>
-																	<td>2</td>
-																	<td>DevOps</td>
-																</tr>
-																<tr>
-																	<td>3</td>
-																	<td>DataLab</td>
-																</tr>
-															</table>
-														</td>
-
-														<td>
-															<table>
-																<tr>
-																	<td>emp_id</td>
-																	<td>name</td>
-																	<td>age</td>
-																	<td>dep_id</td>
-																</tr>
-																<tr>
-																	<td>1</td>
-																	<td>Artur</td>
-																	<td>20</td>
-																	<td>1</td>
-																</tr>
-																<tr>
-																	<td>1</td>
-																	<td>Artur</td>
-																	<td>20</td>
-																	<td>2</td>
-																</tr>
-																<tr>
-																	<td>2</td>
-																	<td>John</td>
-																	<td>40</td>
-																	<td>1</td>
-																</tr>
-																<tr>
-																	<td>2</td>
-																	<td>John</td>
-																	<td>40</td>
-																	<td>2</td>
-																</tr>
-																<tr>
-																	<td>2</td>
-																	<td>John</td>
-																	<td>40</td>
-																	<td>3</td>
-																</tr>
-															</table>
-														</td>
-													</tr>
-												</table>
-
-												- We can move on and make the table in <b>2 NF</b> and <b>3 NF</b>.<br>
-												- In 2 NF we care about having single column primary key. In our examples both departments and employees tables has single-column primary key i.e. <b>dep_id</b> and <b>emp_id</b> respecitvely.<br>
-												- In 3 NF we get rid of any dependencies on non-key columns. Dependecy can exist only on primary key column.
-
-												<br><br>
-												<span>Employees table and assignment table</span>
-												<table>
-													<tr>
-
-														<td>
-															<table style="width:15%;">
-																<tr>
-																	<td>emp_id</td>
-																	<td>emp_name</td>
-																	<td>emp_age</td>
-																</tr>
-																<tr>
-																	<td>1</td>
-																	<td>Artur</td>
-																	<td>20</td>
-																</tr>
-																<tr>
-																	<td>2</td>
-																	<td>John</td>
-																	<td>40</td>
-																</tr>
-															</table>
-														</td>
-
-														<td>
-															<table style="width:15%;">
-																<tr>
-																	<td>emp_id</td>
-																	<td>dep_id</td>
-																</tr>
-																<tr>
-																	<td>1</td>
-																	<td>1</td>
-																</tr>
-																<tr>
-																	<td>1</td>
-																	<td>2</td>
-																</tr>
-																<tr>
-																	<td>2</td>
-																	<td>1</td>
-																</tr>
-																<tr>
-																	<td>2</td>
-																	<td>2</td>
-																</tr>
-																<tr>
-																	<td>2</td>
-																	<td>3</td>
-																</tr>
-															</table>
-														</td>
-													</tr>
-												</table>
-												- With that solution what we get is <b>many-to-many</b> relationship where many employees can be assigned to one or more departments.<br>
-												- Assignment table plays then a role of the connector table that manages many-to-many relationship.<br>
-												- Assignment table becomes denormalized table with references to normalized tables.<br>
-												- Denormaliaztion is basically combining multiple tables into one for achieving fast data access.
-											</li>
-											<li>When we care about keeping table normalized we get a set of benefits:
-												<br>
-												- better db organization,<br>
-												- more tables with smaller rows,<br>
-												- easy modification,<br>
-												- reduction of redundant and duplicate data.<br>
-												- ensuring data integrity.
-											</li>
-										</ul>
-
-										<h5 id="one_to_many">One-to-many relationship</h5>
-										<ul>
-											<li>When one record from table A can have multiple corresponding records in table B.</li>
-											<li>Lets take Products and Categories tables:
-												<br>
-												<img src="images/one_to_many.png" width="500"><span style="font-size:12px;">source: sqlpedia.pl</span><br>
-												- one category can be assigned to many products, however one product cannot be assigned to many categories.
-											</li>
-										</ul>
-
-										<h5 id="many_to_many">Many-to-many relationship</h5>
-										<ul>
-											<li>This kind of relationship can be handled by connector table that breaks relationship into two relationships of one-to-many.
-													As the example, let's take order system, where each product can be ordered many times in different orders.</li>
-											<li>Here are Orders and Products tables connecter with one-to-many relationships with Order Details table.
-												<br>
-												<img src="images/many_to_many.png" width="600"><span style="font-size:12px;">source: sqlpedia.pl</span>
-											</li>
-										</ul>
-
-										<h5 id="variables">Variables</h5>
-										<ul>
-											<li>We can set variable data type, assign a value to it, and use it in the code:
-<!-- start -->
-<pre>
-DECLARE <span style="color:#00ffea;">@TestVariable</span> AS VARCHAR(100)
-SET <span style="color:#00ffea;">@TestVariable</span> = 'Thi is an example string.'
-PRINT <span style="color:#00ffea;">@TestVariable</span>
-</pre>
-<!-- end -->
-											</li>
-											<li>We can display variable value with SELECT or PRINT statements.</li>
-											<li>We can also use SELECT statement in order to assing a value to a variable:
-<!-- start -->
-<pre>
-DECLARE <span style="color:#00ffea;">@CarName</span> AS NVARCHAR(50)
-SELECT <span style="color:#00ffea;">@CarName</span> = car_model
-FROM db.cars
-WHERE car_id = 1492
-PRINT <span style="color:#00ffea;">@CarName</span>
-</pre>
-<!-- end -->
-												- or:
-<!-- start -->
-<pre>
-DECLARE <span style="color:#00ffea;">@NumCars</span> AS INT
-SET <span style="color:#00ffea;">@NumCars</span> = (SELECT COUNT(*) FROM db.cars)
-</pre>
-<!-- end -->
-											</li>
-											<li>When we assign multiple-rows SELECT result to a variable, the assigned value to the variable will be the last row of the resultset.</li>
-											<li>It's important to remember that local variable scope expires at the end of the batch which can be determined by <b>GO</b> statement</li>
-											<li>Thus the lifecycle of variable <code>@TestVariable</code> determines with GO statement line.
-													In other words, the variable which is declared above the GO statement line can not be accessed under the GO statement.
-											</li>
-											<li>Variable scopes:
-												<table>
-													<thead>
-														<tr>
-															<td>Local Variable</td>
-															<td>Global Variable</td>
-														</tr>
-													</thead>
-													<tbody>
-														<tr>
-															<td>A user declares the local variable.</td>
-															<td>The system maintains the global variable. A user cannot declare them.</td>
-														</tr>
-														<tr>
-															<td>By default, a local variable starts with @.</td>
-															<td>The global variable starts with @@.</td>
-														</tr>
-														<tr>
-															<td>Can be used or exist inside the function.</td>
-															<td>Can be used or exist throughout the program.</td>
-														</tr>
-													</tbody>
-												</table>
-											</li>
-										</ul>
-
-										<h5 id="oltp_and_olap">OLTP and OLAP</h5>
-										<table>
-											<thead>
-												<tr>
-													<td>Online Transaction Processing (OLTP) </td>
-													<td>Online Analytical Processing (OLAP)</td>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Online database modifying system.</td>
-													<td>Online database data retrieving system.</td>
-												</tr>
-												<tr>
-													<td>Uses traditional DBMS.</td>
-													<td>Uses the data warehouse.</td>
-												</tr>
-												<tr>
-													<td>Insert, Update, and Delete operations.</td>
-													<td>Mostly select operations.</td>
-												</tr>
-												<tr>
-													<td>Queries are standardized and simple.</td>
-													<td>Complex queries involving aggregations.</td>
-												</tr>
-												<tr>
-													<td>Tables are normalized.</td>
-													<td>Tables are <u>not</u> normalized.</td>
-												</tr>
-												<tr>
-													<td>Transactions are the sources of data.</td>
-													<td>Different OLTP databases become the source of data for OLAP.</td>
-												</tr>
-												<tr>
-													<td>Maintains data integrity constraint.</td>
-													<td>Doesn't get frequently modified. Hence, data integrity is not an issue</td>
-												</tr>
-												<tr>
-													<td>Designed for real time business operations.</td>
-													<td>Designed for analysis of business measures.</td>
-												</tr>
-											</tbody>
-										</table>
-
-										<h5 id="functions">Functions</h5>
-										<ul>
-											<li>SQL has many built-in functions that can be categorised in two categories:
-												<table>
-													<thead>
-														<tr>
-															<td>Aggregate functions</td>
-															<td>Scalar functions</td>
-														</tr>
-													</thead>
-													<tbody>
-														<tr>
-															<td>Perform calculations on a group of values and then return a single value.</td>
-															<td>Return a single value from the given input value.</td>
-														</tr>
-														<tr>
-															<td>
-																SUM()<br>
-																COUNT()<br>
-																AVG()<br>
-																MIN()<br>
-																MAX()<br>
-																FIRST()<br>
-																LAST()
-															</td>
-															<td>
-																LCASE()<br>
-																UCASE()<br>
-																LEN()<br>
-																MID() / SUBSTRING()<br>
-																LOCATE() / CHARINDEX()<br>
-																ROUND()<br>
-																NOW()<br>
-																FORMAT()<br>
-																INSTR()<br>
-																CONCAT()<br>
-																REPLACE()<br>
-																YEAR()
-															</td>
-														</tr>
-													</tbody>
-												</table>
-											</li>
-										</ul>
-
-										<h5 id="like">LIKE</h5>
-										<ul>
-											<li>LIKE operator is used for pattern matching.</li>
-											<li>It can be used with wildcards:
-												<br>
-												- "%"" - matches zero or more characters.<br>
-<!-- start -->
-<pre>
-SELECT *
-FROM employees
-WHERE emp_surname LIKE 'S%'
-</pre>
-<!-- end -->
-												- "_" - matches exactly one character.
-											</li>
-										</ul>
-
-										<h5 id="view">VIEW</h5>
-										<ul>
-											<li>It's a virtual table based on the result of any SQL statement.</li>
-											<li>A view contains all you need in every other table: rows and columns and fields can come from one or more real tables.</li>
-											<li>While creating views, we can apply <code>WHERE</code> or <code>JOIN</code> statements to keep the data as if it comes from one single table.</li>
-											<li>Here is the syntax for view creating:
-<!-- start -->
-<pre>
-CREATE VIEW <span style="background-color:#ad5353;">view_name</span> AS
-SELECT column1, column2, ...
-FROM table_name
-WHERE condition;
-</pre>
-<!-- end -->
-												- end here is how to query a view:
-<!-- start -->
-<pre>
-SELECT * FROM <span style="background-color:#ad5353;">view_name</span>
-</pre>
-<!-- end -->
-											</li>
-											<li>With views we can restric users from being able to check some confidential data.
-													In a view we just define what columns are visible. The columns we want to keep invisible, we don't include them into the view while creating.
-													For example, lets say we have the employees table data schema:<br>
-													&nbsp&nbsp&nbsp- id: numeric<br>
-													&nbsp&nbsp&nbsp- first_name: string<br>
-													&nbsp&nbsp&nbsp- last_name: string<br>
-													&nbsp&nbsp&nbsp- salary: numeric<br>
-													Let's assume that column salary is confidential and has to be restricted from viewing:
-<!-- start -->
-<pre>
-CREATE VIEW <span style="background-color:#ad5353;">emloyess_details</span> AS
-SELECT first_name, last_name,
-FROM employess
-WHERE last_name LIKE 'S%';
-</pre>
-<!-- end -->
-												- When we wat to check salary somehow:
-												<!-- start -->
-<pre>
-SELECT last_name, salary
-FROM <span style="background-color:#ad5353;">emloyess_details</span>
-WHERE last_name LIKE 'S%';
-</pre>
-<!-- end -->
-												- Querying the view <code>emloyess_details</code> for <code>salary</code> field raises an error.
-											</li>
-											<li>It aslo simplifies queries hiding their complexity made with UNION, JOIN etc.</li>
-										</ul>
-
-
-										<h5 id="index">INDEX</h5>
-										<ul>
-											<li>An index is used to speed up searching in the database by reducing records amount to be scanned.</li>
-											<li>An index helps to speed up <code>SELECT</code> queries and <code>WHERE</code> clauses, but it slows down data input, with the <code>UPDATE</code> and the <code>INSERT</code> statements.</li>
-											<li>Creating an index involves the <code>CREATE INDEX</code> statement, which allows you to name the index, to specify the table and which column or columns to index:
-<!-- start -->
-<pre>
-CREATE INDEX index_name
-ON table_name (column_name);
-</pre>
-<!-- end -->
-											</li>
-											<li>Updating a table with indexes takes more time than updating a table without (because the indexes also need an update).
-													So, only create indexes on columns that will be frequently searched against.
-											</li>
-											<li>When not to use indexes:
-												<br>
-												- on small tables,<br>
-												- on tables that have frequent, large updates or insert operations,<br>
-												- on columns that contain a large number of NULLs,<br>
-												- on columns that are frequently manipulated.<br>
-											</li>
-											<li>Here is how to use it:
-												<br>
-												- creating index:
-<!-- start -->
-<pre>
-CREATE INDEX employees_last_name_idx
-ON employees (<span style="background-color:#3976b3;">last_name</span>);
-</pre>
-<!-- end -->
-												- using indexed column in the select query:
-<!-- start -->
-<pre>
-SELECT *
-FROM employees
-WHERE salary > 10000 AND
-    <span style="background-color:#3976b3;">last_name</span> = "Smith"
-</pre>
-<!-- end -->
-												- we use <code>last_name</code> indexed column wihthin WHERE caluse along with <code>salary</code> which speeds up performing the query.<br>
-												- It simply works like an index in the book where a specific sections or chapters are indexed with their headings.
-											</li>
-											<li>We can also index multiple columns, however it takes very long to set it up for the db engine.</li>
-											<li>We can say that there are two types of indexes:
-												<br>
-												<table>
-													<thead>
-														<tr>
-															<td>Clustered Index</td>
-															<td>Non-Clustered Index</td>
-														</tr>
-													</thead>
-													<tbody>
-														<tr>
-															<td>Defines the order of storing data in the table</td>
-															<td>Doesn't define the order of data inside the table</td>
-														</tr>
-														<tr>
-															<td>As data always can be stored in one way, there can be only one clustered index. When creating a table, the primary key constraint automatically creates index on that column.</td>
-															<td>In fact, non-clustered index is stored at different place than table data is stored. This allows for more than one non-clustered index per table.</td>
-														</tr>
-														<tr>
-															<td>Clustered indexes only sort tables. Therefore, they do not consume extra storage.</td>
-															<td>Non-clustered indexes are stored in a separate place from the actual table claiming more storage space.</td>
-														</tr>
-														<tr>
-															<td>Fast performance.</td>
-															<td>Slower performance as it requires additional lookup between index sotrage and acutal table.</td>
-														</tr>
-													</tbody>
-												</table>
-												- It is important to mention here that inside the table the data will be sorted by a clustered index.<br>
-												- However, inside the non-clustered index data is stored in the specified order.<br>
-												- The non-clustered index contains column values on which the index is created and the address of the corresponding records in the actual table.
-											</li>
-											<li>Here is how it works:
-													<br>
-													- When a query is run against indexed column, the database will first go to the index and look for the address of the corresponding row in the table.
-												 	It will then go to that row address in the table and fetch other column values.
-											</li>
-										</ul>
-
-										<h5 id="distinct">DISTINCT</h5>
-										<ul>
-											<li>Using when we wan to get unique values from a given column.
-<!-- start -->
-<pre>
-SELECT DISTINCT name
-FROM students
-</pre>
-<!-- end -->
-											</li>
-										</ul>
-
-										<h5 id="join">JOIN</h5>
-										<ul>
-											<li>Join is the keyword needed when quering more than one table.</li>
-											<li>While joining, we need to define on what columns (of both tables) we will be keeping tables joined.</li>
-											<li>Usually, we use primary key of one table matching it with its corresponding foreign key in another table.</li>
-											<li>There are a few kind of joins:
-												<br>
-												- <b>Left join</b>: returns all the rows from the left table regardless if there is a match or a null from the right table.<br>
-												- <b>Right join</b>: returns all the rows from the right table regardless if there is a match or a null from the left table.<br>
-												- <b>Inner join</b>: returns rows when there is a match in rows between the tables.<br>
-												- <b>Full outer join</b>: returns all the rows from the left-hand side table and all the rows from the right-hand side table.<br>
-											</li>
-											<li>Let's take two table schemas for an example:
-												<br><br>
-												<table>
-												<tr style="background-color: #223639; color: #ffff; font-size:18px;">
-													<td>
-													tblVideo<br>
-													- video_id: PRIMARY KEY integer<br>
-													- author_id: integer<br>
-													- video_duration: float
-													</td>
-													<td>
-													tblView<br>
-													- video_id: FOREIGN KEY integer<br>
-													- viewer_id: integer<br>
-													- viewer_timewatch: float
-													</td>
-												</tr>
-												</table>
-											</li>
-											<li>Inner join example:
-												<br>
-												<i><b>How many publishers have at least one viewer?</b></i>
-<!-- start -->
-<pre>
-SELECT COUNT(DISTINCT vd.author_id)
-FROM tblVideo vd
-INNER JOIN tblView vw
-ON vd.video_id = vw.video_id
-</pre>
-<!-- end -->
-													- It doesn't count authors whose videos are not in the tblView.<br>
-													- If I want to count disctinct author's id, I wouldn't need any JOINs and do select only on tblVideo.
-											</li>
-											<li id="order_by">Left join example:
-												<br>
-												- Here is the snippet of data schema:
-												<br>
-												<img src="images/sql_server.JPG" width="420"><span style="font-size:12px">source: toptal.com</span>
-<!-- strat -->
-<pre>
-SELECT i.Id, i.BillingDate, c.Name, r.Name AS ReferredByName
-FROM Invoices i
- LEFT JOIN Customers c ON i.CustomerId = c.Id
- LEFT JOIN Customers r ON c.ReferredBy = r.Id
-ORDER BY i.BillingDate ASC;
-</pre>
-<!-- end -->
-												- With LEFT JOIN we make sure that all the invoices will be returned no matter what (in case of any NULLs within Customers table).<br>
-												- First LEFT JOIN joins customer id pk with customer id fk in the Invoices table.<br>
-												- Second LEFT JOIN joins customer id pk with cusotmer id  fk in the Customer table.<br>
-												- ORDER BY orders outcome by date. We can append ASC/DESC if ascending or descending ordering.
-											</li>
-											<li>We can join multiple tables:
-<!-- start -->
-<pre>
-SELECT column1, column2
-FROM TableA
-JOIN TableB ON TableA.Column3 = TableB.Column3
-JOIN TableC ON TableA.Column4 = TableC.Column4
-</pre>
-<!-- stop -->
-											</li>
-											<li>We can also join a table with itself what we call <span id="self_join">self join</span>
-<!-- start -->
-<pre>
-	SELECT DISTINCT E.FullName
-	FROM EmployeeDetails E
-	INNER JOIN EmployeeDetails M
-	ON E.EmpID = M.ManagerID;
-</pre>
-<!-- stop -->
-												- We are using different aliases to differentiate tables on join.<br>
-												- This way we fetch those emps whose id are present in the ManagerID column.
-											</li>
-										</ul>
-
-										<h5 id="using">USING</h5>
-										<ul>
-											<li>USING clause comes in use while working with JOIN and can be used instead of ON clause.</li>
-											<li>When we use USING clause, that particular column name should be present in both tables, and the SELECT query will automatically join those tables using the given column name in USING clause.</li>
-											<li>Here comes the example:
-<!-- start -->
-<pre>
-SELECT e.emp_id, e.last_name, d.loc_id
-FROM emploees e JOIN departments d
-USING(dep_id);
-</pre>
-<!-- end -->
-												- in tables employees and departments, dep_id column is the mutual one.
-											</li>
-										</ul>
-
-										<h5 id="union">UNION</h5>
-										<ul>
-											<li>Merges the contents of two structurally-compatible tables into a single combined table removing duplicated records.</li>
-											<li>There is also UNION ALL that does the same things but keeps duplicated records.</li>
-											<li>Performance of UNION ALL is better than UNION, since UNION requires the server to do the additional work of removing any duplicate.</li>
-											<li>Here is how to use it:
-<!-- start -->
-<pre>
-SELECT employee_id, first_name, last_name, 'Employee' AS status
-FROM employees
-UNION
-SELECT visitor_id, first_name, last_name, 'Visitor' AS status
-FROM visitors
-</pre>
-<!-- stop -->
-												- note that colums selected from both tables have to be in sync with each other.
-											</li>
-										</ul>
-
-										<h5 id="except">EXCEPT</h5>
-										<ul>
-											<li>Allows to fetch values from one table that are not in another table.
-<!-- start -->
-<pre>
-CREATE TABLE test_a(id INTEGER);
-INSERT INTO test_a(id) VALUES (10);
-INSERT INTO test_a(id) VALUES (20);
-INSERT INTO test_a(id) VALUES (30);
-INSERT INTO test_a(id) VALUES (40);
-INSERT INTO test_a(id) VALUES (50);
-
-CREATE TABLE test_b(id INTEGER);
-INSERT INTO test_b(id) VALUES (10);
-INSERT INTO test_b(id) VALUES (30);
-INSERT INTO test_b(id) VALUES (50);
-
-SELECT * FROM test_a
-EXCEPT
-SELECT * FROM test_b;
-
-----------------------
-20, 40
-</pre>
-<!-- end -->
-												- 20 and 40 are the values that are not present in test_b table.
-											</li>
-										</ul>
-
-										<h5 id="intersect">INTERSECT</h5>
-										<ul>
-											<li>Fetchs common records between two tables:
-<!-- start -->
-<pre>
-SELECT * FROM EmployeeSalary
-INTERSECT
-SELECT * FROM ManagerSalary;
-</pre>
-<!-- end -->
-											</li>
-										</ul>
-
-										<h5 id="limit">LIMIT</h5>
-										<ul>
-											<li>Limiting select query results to specific numbers of records:
-<!-- start -->
-<pre>
-SELECT *
-FROM (
-	SELECT *
-	FROM employees
-	ORDER BY salary DESC )
-LIMIT 10;
-</pre>
-<!-- end -->
-												- We fetch 10 highest salaries in employees tabel.<br>
-												- We use subquery meaning we emebd one select into another.
-											</li>
-										</ul>
-
-										<h5 id="top">TOP</h5>
-										<ul>
-											<li>We can select x top records:
-												<br>
-												- let's assume we have customers table and the fields customer_id,<br>
-												- let's fetch first 100 odd cutomer_id values,<br>
-												- <span id="where">there, we use WHERE clause to filter fetch rows, this clause allows AND as well as OR operators,</span>
-<!-- start -->
-<pre>
-SELECT TOP 100 customer_id
-FROM customers
-WHERE customer_id % 2 = 1
-ORDER BY user_id
-</pre>
-<!-- end -->
-												- Clause Were can also have BETWEEM operator:
-<!-- start -->
-<pre>
-SELECT *
-FROM employees
-WHERE date_of_joining BETWEEN '2020/01/01' AND '2020/12/31';
-</pre>
-<!-- end -->
-												- When it comes to dates, we can extract what we want:
-<!-- start -->
-<pre>
-SELECT *
-FROM employees
-WHERE YEAR(date_of_joining) = '2020'
-</pre>
-<!-- end -->
-											</li>
-										</ul>
-
-										<h5 id="group_by">GROUP BY</h5>
-										<ul>
-											<li>Groups rows when they have the same value in the field we indicate:
-<!-- start -->
-<pre>
-SELECT COUNT(CustomerID), Country
-FROM Customers
-GROUP BY Country
-HAVING COUNT(CustomerID) > 3;
-</pre>
-<!-- end -->
-												- We count all customers for a specific country but we display countires where count is bigger than 3.<br>
-												- We use GROUP BY when some aggregating function in select line like COUNT, SUM, AVERAGE.<br>
-												- <span id="having">HAVING simply puts filter on COUNT(CustomerID) outcome column.</span>
-<!-- start -->
-<pre>
-COUNT(CustomerID)	Country
-9			Brazil
-11			France
-11			Germany
-5			Mexico
-5			Spain
-7			UK
-13			USA
-4			Venezuela
-</pre>
-<!-- end -->
-											</li>
-											<li>WHERE vs HAVING:
-												<br>
-												- When GROUP BY is not used, then WHERE and HAVING clauses works the same.<br>
-												- When  GROUP BY is used, then WHERE clause is used to filter records from a result and filtering works before any grouping. HAVING clause is used to filter values from a group.
-											</li>
-										</ul>
-
-
-										<h5>Referencing to the same table more than once:</h5>
-										<ul>
-											<li>Here is the employees table:
-												<br><br>
-												<table style="font-size:16px;">
-													<thead>
-														<tr>
-															<th>Emp_Id</th>
-															<th>Emp_name</th>
-															<th>Salary</th>
-															<th>Manager_Id</th>
-														</tr>
-													</thead>
-													<tbody>
-														<tr>
-															<td>10</td>
-															<td>Anil</td>
-															<td>50000</td>
-															<td>18</td>
-														</tr>
-														<tr>
-															<td>11</td>
-															<td>Vikas</td>
-															<td>75000</td>
-															<td>16</td>
-														</tr>
-														<tr>
-															<td>12</td>
-															<td>Nisha</td>
-															<td>40000</td>
-															<td>18</td>
-														</tr>
-														<tr>
-															<td>13</td>
-															<td>Nidhi</td>
-															<td>60000</td>
-															<td>17</td>
-														</tr>
-														<tr>
-															<td>14</td>
-															<td>Priya</td>
-															<td>80000</td>
-															<td>18</td>
-														</tr>
-														<tr>
-															<td>15</td>
-															<td>Mohit</td>
-															<td>45000</td>
-															<td>18</td>
-														</tr>
-														<tr>
-															<td>16</td>
-															<td>Rajesh</td>
-															<td>90000</td>
-															<td>Null</td>
-														</tr>
-														<tr>
-															<td>17</td>
-															<td>Raman</td>
-															<td>55000</td>
-															<td>16</td>
-														</tr>
-														<tr>
-															<td>18</td>
-															<td>Santosh</td>
-															<td>65000</td>
-															<td>17</td>
-														</tr>
-													</tbody>
-												</table>
-											</li>
-											<li>Lets fetch all rows with WHERE clause on <b>a.manager_id = b.emp_id</b>:
-<!-- start -->
-<pre>
-SELECT *
-FROM Employee a, Employee b
-WHERE a.manager_id = b.emp_id
-</pre>
-<!-- end -->
-												<table class="employees_query" style="font-size:16px;">
-													<tbody>
-														<tr>
-															<td>10</td>
-															<td>Anil</td>
-															<td>50000</td>
-															<td>18</td>
-															<td>18</td>
-															<td>Santosh</td>
-															<td>65000</td>
-															<td>17</td>
-														</tr>
-														<tr>
-															<td>11</td>
-															<td>Vikas</td>
-															<td>75000</td>
-															<td>16</td>
-															<td>16</td>
-															<td>Rajesh</td>
-															<td>90000</td>
-															<td>Null</td>
-														</tr>
-														<tr>
-															<td>12</td>
-															<td>Nisha</td>
-															<td>40000</td>
-															<td>18</td>
-															<td>18</td>
-															<td>Santosh</td>
-															<td>65000</td>
-															<td>17</td>
-														</tr>
-														<tr>
-															<td>13</td>
-															<td>Nidhi</td>
-															<td>60000</td>
-															<td>17</td>
-															<td>17</td>
-															<td>Raman</td>
-															<td>55000</td>
-															<td>16</td>
-														</tr>
-														<tr>
-															<td>14</td>
-															<td>Priya</td>
-															<td>80000</td>
-															<td>18</td>
-															<td>18</td>
-															<td>Santosh</td>
-															<td>65000</td>
-															<td>17</td>
-														</tr>
-														<tr>
-															<td>15</td>
-															<td>Mohit</td>
-															<td>45000</td>
-															<td>18</td>
-															<td>18</td>
-															<td>Santosh</td>
-															<td>65000</td>
-															<td>17</td>
-														</tr>
-														<tr>
-															<td>17</td>
-															<td>Raman</td>
-															<td>55000</td>
-															<td>16</td>
-															<td>16</td>
-															<td>Rajesh</td>
-															<td>90000</td>
-															<td>Null</td>
-														</tr>
-														<tr>
-															<td>18</td>
-															<td>Santosh</td>
-															<td>65000</td>
-															<td>17</td>
-															<td>17</td>
-															<td>Raman</td>
-															<td>55000</td>
-															<td>16</td>
-														</tr>
-													</tbody>
-												</table>
-												- Note there is no Rajesh in the outcome as he has no manager above him. Rajesh appears only as the manager for other employees.
-											</li>
-											<li>Let's group managers counting average salary:
-<!-- start -->
-<pre>
-SELECT b.emp_id AS "Manager_Id", b.emp_name AS "Manager", AVG(b.salary) AS "Avg_Salary_Under_Manager"
-FROM employees a, employees b
-WHERE a.manager_id = b.emp_id
-GROUP BY b.emp_id
-ORDER BY b.emp_id;
-</pre>
-<!-- end -->
-												<table style="font-size:16px;">
-													<tbody>
-														<tr>
-															<th>Manager_Id</th>
-															<th>Manager</th>
-															<th>Average_Salary_Under_Manager</th>
-														</tr>
-														<tr>
-															<td>16</td>
-															<td>Rajesh</td>
-															<td>65000</td>
-														</tr>
-														<tr>
-															<td>17</td>
-															<td>Raman</td>
-															<td>62500</td>
-														</tr>
-														<tr>
-															<td>18</td>
-															<td>Santosh</td>
-															<td>53750</td>
-														</tr>
-													</tbody>
-												</table>
-											</li>
-										</ul>
-
-										<h5 id="case">CASE</h5>
-										<ul>
-											<li>We can use Case to give some conditons:
-												<br>
-												- assuming we have tblTest table and Nmbr filed,<br>
-												- tblTest has 50 rows and Nmbr field contains 1s and 0s,<br>
-												- let's replace 1s with 11s and 0s with 10s:
-<!-- start -->
-<pre>
-UPDATE tblTest SET Nmbr = case
- WHEN Nmbr = 0 THEN 10
- ELSE 11 END;
-</pre>
-<!-- end -->
-											</li>
-										</ul>
-
-										<h5 id="in">IN</h5>
-										<ul>
-											<li>The IN operator allows to specify multiple values in a WHERE clause.</li>
-											<li>If taken value 'Apple' is in one of given caolumns then we take rows into results.</li><br>
-												<table style="font-size:16px;">
-													<tr>
-														<td>Id</td>
-														<td>Col1</td>
-														<td>Col2</td>
-														<td>Col3</td>
-													</tr>
-													<tr>
-														<td>1</td>
-														<td>Apple</td>
-														<td>Null</td>
-														<td>Orange</td>
-													</tr>
-													<tr>
-														<td>2</td>
-														<td>Orange</td>
-														<td>Apple</td>
-														<td>Strawberry</td>
-													</tr>
-													<tr>
-														<td>3</td>
-														<td>Strawberry</td>
-														<td>Apple</td>
-														<td>Orange</td>
-													</tr>
-												</table>
-<!-- start -->
-<pre>
-SELECT * FROM table
-WHERE 'Apple' IN (Col1, Col2 Col3)
-</pre>
-<!-- end -->
-											</li>
-										</ul>
-
-										<h5 id="over">OVER</h5>
-										<ul>
-											<li>A <span id="window_functions"><b>window function</b></span> is an SQL function where the input values are taken from a "window" of one or more rows in the results set of a SELECT statement.
-													Window functions are distinguished from other SQL functions by the presence of an <b>OVER clause</b>.
-											</li>
-											<li>OVER clause has been added to SQL Server and can be used to determine which rows from the query are applied to the function.</li>
-											<li><b>PARTITION BY clause</b> is used to divide the result set from the query into data subsets, or partitions.
-													PARTITION BY clause is not used, the entire result set from the query is the partition that will be used.
-													The window function being used is applied to each partition separately, and the computation that the function performs is restarted for each partition.
-													Lets have a look at example without OVER and with OVER applied:
-<!-- start -->
-<pre>
-SELECT  object_id, index_id, COUNT(*) OVER ()
-FROM objects
-</pre>
-<!-- end -->						<br>
-												<table>
-													<tr>
-														<td>obj_id</td>
-														<td>index_id</td>
-														<td>no_col_name</td>
-													</tr>
-													<tr>
-														<td>3</td>
-														<td>1</td>
-														<td>500</td>
-													</tr>
-													<tr>
-														<td>5</td>
-														<td>1</td>
-														<td>500</td>
-													</tr>
-													<tr>
-														<td>6</td>
-														<td>1</td>
-														<td>500</td>
-													</tr>
-													<tr>
-														<td>7</td>
-														<td>1</td>
-														<td>500</td>
-													</tr>
-													<tr>
-														<td>7</td>
-														<td>2</td>
-														<td>500</td>
-													</tr>
-													<tr>
-														<td>8</td>
-														<td>0</td>
-														<td>500</td>
-													</tr>
-													<tr>
-														<td>...</td>
-														<td>...</td>
-														<td>...</td>
-													</tr>
-												</table>
-												<span style="font-size:12px;">source: sqlservercentral.com</span><br>
-												- This query returns the <b>object_id</b> and <b>index_id</b> for each record, and the total number of indexes in the result set.<br>
-												- Since a PARTITION BY clause was not used, the entire result set was treated as a single partition.<br>
-												- Let's apply PARTITION BY clause:
-<!-- start -->
-<pre>
-SELECT object_id, index_id, COUNT(*) OVER (PARTITION BY object_id)
-FROM objects
-</pre>
-<!-- end -->
-												<table>
-													<tr>
-														<td>obj_id</td>
-														<td>index_id</td>
-														<td>no_col_name</td>
-													</tr>
-													<tr>
-														<td>3</td>
-														<td>1</td>
-														<td>1</td>
-													</tr>
-													<tr>
-														<td>5</td>
-														<td>1</td>
-														<td>1</td>
-													</tr>
-													<tr>
-														<td>6</td>
-														<td>1</td>
-														<td>1</td>
-													</tr>
-													<tr>
-														<td>7</td>
-														<td>1</td>
-														<td>2</td>
-													</tr>
-													<tr>
-														<td>7</td>
-														<td>2</td>
-														<td>2</td>
-													</tr>
-													<tr>
-														<td>8</td>
-														<td>0</td>
-														<td>1</td>
-													</tr>
-													<tr>
-														<td>...</td>
-														<td>...</td>
-														<td>...</td>
-													</tr>
-												</table>
-												<span style="font-size:12px; margin-top: -20px;">source: sqlservercentral.com</span><br>
-												- Above query specifies a PARTITION BY clause of the object_id column, so the count function is returning the number of indexes on that particular object_id.
-													For example obj_id has been counted to 2 in no_col_name.
-											</li>
-										</ul>
-
-										<h5 id="offset">OFFSET</h5>
-										<ul>
-											<li>The OFFSET clause specifies the number of rows to skip before starting to return rows from the query.
-													The <span id="fetch">FETCH</span> clause specifies the number of rows to return after the OFFSET clause has been processed.</li>
-											<li>We must use the OFFSET and FETCH clauses with the ORDER BY clause.</li>
-											<li>Skipping the first 10 products and selecting the next 10 products:
-<!-- start -->
-<pre>
-SELECT product, price
-FROM products
-ORDER BY price, product
-OFFSET 10 ROWS
-FETCH NEXT 10 ROWS ONLY;
-</pre>
-<!-- end -->
-											</li>
-										</ul>
-
-										<h5 id="exist">Exist</h5>
-										<ul>
-											<li>The EXISTS operator is used to test for the existence of any record in a subquery.</li>
-											<li>The EXISTS operator returns true if the subquery returns one or more records:
-<!-- start -->
-<pre>
-SELECT SupplierName
-FROM Suppliers
-WHERE EXISTS (
-  SELECT ProductName
-  FROM Products
-  WHERE Products.SupplierID = Suppliers.SupplierID AND Price < 20)
-</pre>
-<!-- end -->
-											- Above query returns TRUE and lists the suppliers with a product price less than 20:
-										</ul>
-
+										<h2>Welcome to my Portfolio</h2>
+										<h3>About</h3>
+										<p>My Portfolio is the set of real business case solutions.
+											Each project provides a detailed concept understanding along with the business problem description, way to reach the solution and the source code of applied technology. Areas it covers:
+										</p>
+											<ul class="feature-icons">
+												<li class="icon solid fa-check">Data Analytics</li>
+												<li class="icon solid fa-check">Data Engineering</li>
+												<li class="icon solid fa-check">Data Management</li>
+												<li class="icon solid fa-check">Process Automation</li>
+												<li class="icon solid fa-check">Machine Learning</li>
+												<li class="icon solid fa-check">Big Data</li>
+											<ul>
 									</header>
 								</div>
 							</section>
@@ -1408,10 +66,27 @@ WHERE EXISTS (
 						<!-- Two -->
 							<section id="two">
 								<div class="container">
-									<h3>Features</h3>
-									<p>App includes following features:</p>
+									<h3>Skills</h3>
+									<p>In this section, you can see a brief overview of the skillset used for the portfolio building. Please view my CV for the complete skillset.</p>
+									<p>Programming and data analysis:</p>
 									<ul class="feature-icons">
-										<li class="icon solid fa-check">SQL</li>
+										<li class="icon brands fa-python">Python</li>
+										<li class="icon solid fa-flask">Flask and Django</li>
+										<li class="icon brands fa-node-js">NodeJS</li>
+										<li class="icon solid fa-file-code">HTML, CSS, JS, PHP</li>
+										<li class="icon brands fa-java">Java and C++</li>
+										<li class="icon solid fa-database">SQL, noSQL</li>
+										<li class="icon solid fa-file-excel">Excel, PQ, VBA</li>
+										<li class="icon solid fa-chart-bar">Tableau</li>
+									</ul>
+									<p>Methodology:</p>
+									<ul class="feature-icons">
+										<li class="icon solid fa-cubes">Object Oriented Programming</li>
+										<li class="icon solid fa-project-diagram">Unified Modeling Language</li>
+										<li class="icon solid fa-code">Functional Programming</li>
+										<li class="icon solid fa-pencil-alt">UI and UX design</li>
+										<li class="icon solid fa-robot">Machine Learning</li>
+										<li class="icon solid fa-cogs">ETL</li>
 									</ul>
 								</div>
 							</section>
@@ -1419,54 +94,939 @@ WHERE EXISTS (
 						<!-- Three -->
 							<section id="three">
 								<div class="container">
-									<h3>Demo</h3>
 
-									<h5>Application:</h5>
-									<img src="images/sql_learn.gif">
-									<ul>
-										<li>User click Get Questions button what pulls questions down to the application.</li>
-										<li>Each question and answer is hidden. We can click on the proper links to unhide question.</li>
-										<li>User can unhide question first, formulate its answer, then unhide the app's answer in order to comapre.</li>
-									</ul>
+									<h3 id="navi">Projects Navigation</h3>
 
-									<h5>Features:</h5>
-									<ul>
-										<li>NodeJS - server-side API sevice to handle application's HTTP requests.</li>
-										<li>MongoDB Atlas - server connects cloud data storage where I keep question-answer documents that are pulled to application.</li>
-										<li>RactJS - front-end.</li>
-										<li>ExpressJS - web framework that supports building API interfaces.</li>
-									</ul>
+									<nav id="nav">
+										<ul>
+											<a href="#full_stack_applications"><li>Full Stack Applications (10)</li></a>
+											<a href="#excel_application"><li>Excel Applications (3)</li></a>
+											<a href="#machine_learning"><li>Machine Learning (10)</li></a>
+											<a href="#data_analytics"><li>Data Analytics (5)</li></a>
+											<a href="#data_structures"><li>Data Structures (6)</li></a>
+											<a href="#process_automation"><li>Process Automation (6)</li></a>
+											<a href="#algorithm"><li>Algorithms (2)</li></a>
+											<a href="#data_workflow"><li>Data Workflow (6)</li></a>
+											<a href="#user_interface"><li>User Interface (2)</li></a>
+											<a href="#devops"><li>DevOps (4)</li></a>
+											<a href="#programming_practices"><li>Programming practices (4)</li></a>
+											<a href="#cloud_services"><li>Cloud Services (2)</li></a>
+										</ul>
+									</nav>
 
+									<h3 style="border-bottom: 3px solid #f4f4f4; margin-bottom: 40px; padding-bottom: 10px;" id="full_stack_applications">Full Stack Applications (10)</h3>
+									<div class="recent">
+										<article>
+											<a href="https://arturskrzeta.github.io/Progress-Tracking-Dashboard-Full-Stack-with-Flask/."><h4>Progress Tracking Dashboard</h4></a>
+											<ul class="features">
+												<li class="icon brands fa-python">&nbsp&nbsp<b>Full Stack Application</b></li>
+												<li>Python</li>
+												<li>Flask</li>
+												<li>SQLAlchemy</li>
+												<li>HTML</li>
+												<li>CSS</li>
+												<li>JavaScript</li>
+											</ul>
+											<p style="margin-bottom:0.5em">Dashboard allows user to track the progress of the 3 main lifts id est: bench press, squat and deadlift.
+																											User is able to provide its one-rep max lifts per each week to see the overall tendency of its strength.</p>
+											<a href="https://arturskrzeta.github.io/Progress-Tracking-Dashboard-Full-Stack-with-Flask/" class="image">
+												<img src="images/flask.JPG" alt=""/>
+											</a>
+										</article>
+									</div>
+									<div class="features">
+										<article>
+											<a href="https://arturskrzeta.github.io/Stock-Portfolio-Management-System-with-Flask/" class="image"><img src="images/stock.gif" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Stock-Portfolio-Management-System-with-Flask/"><h4>Stock Portfolio Management System</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Full Stack Application</b></li>
+													<li>Python</li>
+													<li>Flask</li>
+													<li>SQLAlchemy</li>
+													<li>HTML</li>
+													<li>CSS</li>
+													<li>JS</li>
+												</ul>
+												<p>Making good investemnt decisions requires you to keep all investing product details in one place.
+													Portfolio enables you to follow your stock exchange transactions along with their parameters as well as your private comments or insights.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/Desk-Booking-App/" class="image"><img src="images/booking-icon.gif" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Desk-Booking-App/"><h4>Desk Booking Application</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Full Stack Application</b></li>
+													<li>Python</li>
+													<li>Flask</li>
+													<li>SQLAlchemy</li>
+													<li>HTML</li>
+													<li>CSS</li>
+													<li>JS</li>
+												</ul>
+												<p>In the world of remote work, the most of employees have to work at home.
+													However, when it's necessary for you to be present in an office on a specific day, book a hot desk using the application so that you can be sure no one occupies it.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/Smart-Contracts-on-Blockchain-Infrastructure/p" class="image"><img src="images/blockchain-app.gif" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Smart-Contracts-on-Blockchain-Infrastructure/"><h4>Smart Contracts on Blockchain</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Full Stack Application</b></li>
+													<li>Python</li>
+													<li>Flask</li>
+													<li>SQLAlchemy</li>
+													<li>HTML</li>
+													<li>CSS</li>
+													<li>JS</li>
+												</ul>
+												<p>Application makes usage of blockchain's security mechanism to store and keep track of contracts insertion.
+													Each contract insertion to the system leaves tracks to the contract that was inserted before.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/Purchase-Request-Management-System/" class="image"><img src="images/django.gif" alt="" style="border: 1px solid #8bbeb187; padding-bottom: 8px;"/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Purchase-Request-Management-System/"><h4>Purchase Request Management System</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Full Stack Application</b></li>
+													<li>Python</li>
+													<li>Django</li>
+													<li>SQLAlchemy</li>
+													<li>HTML</li>
+													<li>CSS</li>
+												</ul>
+												<p>Web application for the Purchase Requests management (non-commercial).
+													Enough of shared excel trackers, now it's time for having fully manageable, relying on a database, issues tracking web application.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/PO-Generator/" class="image"><img src="images/pogenerator.gif"/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/PO-Generator/"><h4>Purchase Order Generator</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Full Stack Application</b></li>
+													<li>Python</li>
+													<li>Flask</li>
+													<li>HTML</li>
+													<li>CSS</li>
+												</ul>
+												<p>Application takes JSON file with data on company, supplier and products and matches all the details into HTML template.
+													Usign special library, the final output is a PDF file being converted from a ready HTML template.
+													In Procurement, PDF file serves as the main form of ordering document that is send over to supplier.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/Requester-Procurement-Channel" class="image"><img src="images/procyou.gif" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Requester-Procurement-Channel"><h4>PHP Full Stack Web App</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-php">&nbsp&nbsp<b>Full Stack Application</b></li>
+													<li>PHP</li>
+													<li>HTML</li>
+													<li>CSS</li>
+													<li>JS</li>
+													<li>MySQL</li>
+												</ul>
+												<p>Web application to make communication between Requesters and Buyers much easier.
+													Everyone can post his or her question/issue and be answered by procurement representative.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/REST-API-with-Django-and-REST-Framework/" class="image"><img src="images/django_rest.JPG" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/REST-API-with-Django-and-REST-Framework/"><h4>REST Framework in Django App</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Full Stack Application</b></li>
+													<li>Django</li>
+													<li>Rest Framework</li>
+													<li>JSON</li>
+												</ul>
+												<p>Django offers library for REST API implementation which pre-defines the rules on how user can communicate with server,
+													 how user can access resources and what is the form of getting them.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/JS-Beyond-a-Browser-with-NodeJS/" class="image"><img src="images/node.JPG" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/JS-Beyond-a-Browser-with-NodeJS/"><h4>Rest API with NodeJs on Heroku</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-node-js">&nbsp&nbsp<b>Full Stack Application</b></li>
+													<li>NodeJS</li>
+													<li>ReactJS</li>
+													<li>Heroku</li>
+													<li>MongoDB</li>
+												</ul>
+												<p>NodeJS creates conditions to use JavaScript outside of a browser.
+													Simply put, it is an open-source runtime system for making server to run JS applications.
+													In the project, I build and deploy the REST API application to Heroku which is the cloud platform in the PaaS model.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/Learn-SQL-Application/" class="image"><img src="images/sql_learn.gif" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Learn-SQL-Application/"><h4>Learn SQL Application</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-node-js">&nbsp&nbsp<b>Full Stack Application</b></li>
+													<li>NodeJS</li>
+													<li>ReactJS</li>
+													<li>ExpressJS</li>
+													<li>MongoDB</li>
+												</ul>
+												<p>Applying for Data Scientist position, we need to be prepared for SQL-related questions.
+													Learn SQL app provides you with the set of questions related mostly to writing SQL queries without digging into theory too much.
+													Just switch to question, write down your query and check if it's correct.
+												</p>
+											</div>
+										</article>
+
+								<!-- NEW SECTION -->
+
+										<h3 id="excel_application">Excel Applications (3)</h3>
+										<article>
+											<a href="https://arturskrzeta.github.io/Decision-Robot" class="image"><img src="images/robot.jpg" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Decision-Robot"><h4>Decision Robot</h4></a>
+												<ul class="features">
+													<li class="icon solid fa-file-excel">&nbsp&nbsp<b>Excel Application</b></li>
+													<li>VBA</li>
+												</ul>
+												<p>Robot gives the best possible option based on the answers given by user in a questionnaire.
+													 User can either rely on the robot in 100% for having decision process fully automated or take it into account during decsion making..</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/Excel-User-Interface-for-Quering-SQLite-Database/" class="image"><img src="images/excel-db.jpg" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Excel-User-Interface-for-Quering-SQLite-Database/"><h4>Excel UI for quering SQL database</h4></a>
+												<ul class="features">
+													<li class="icon solid fa-file-excel">&nbsp&nbsp<b>Excel Application</b></li>
+													<li>VBA</li>
+													<li>SQLite</li>
+												</ul>
+												<p>Using Excel and restrictive programmed logic to interact with SQL database.
+													With that solution we can protect the database and prevent user from sending undesirable queries.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/Recursion-in-System-Files-Management-VBA" class="image"><img src="images/stack_schema.JPG" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Recursion-in-System-Files-Management-VBA"><h4>Recursion in System Files Management</h4></a>
+												<ul class="features">
+													<li class="icon solid fa-file-excel">&nbsp&nbsp<b>Excel Application</b></li>
+													<li>VBA</li>
+												</ul>
+												<p>Being tried of figuring theoretical examples out of recursion application, I decided to go ahead with applying recursion for walking through folders and processing files as needed.</p>
+											</div>
+										</article>
+
+							<!-- NEW SECTION -->
+
+										<h3 id="machine_learning">Machine Learning (10)</h3>
+										<article>
+											<a href="https://arturskrzeta.github.io/CV-for-Processing-Digital-Images/" class="image"><img src="images/cv_image.JPG" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/CV-for-Processing-Digital-Images/"><h4>CV for Prosessing Digital Images</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Algorithmic Machine Learning</b></li>
+													<li>OpenCV</li>
+													<li>Computer Vision</li>
+												</ul>
+												<p>Computer Vision (CV) is the part of artificial intelligence that trains computer to understand and interpret digital images.
+													 Application using CV can accurately locate and identify objects on the image/video and react on what it sees in a programmed way.</p>
+											</div>
+										</article>
+										<article>
+										<article>
+											<a href="https://arturskrzeta.github.io/Objects-Recognition-with-OpenCV-and-Python" class="image"><img src="images/cv.JPG" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Objects-Recognition-with-OpenCV-and-Python"><h4>Objects Recognition with OpenCV</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Algorithmic Machine Learning</b></li>
+													<li>Tesseract</li>
+													<li>OCR</li>
+												</ul>
+												<p>OpenCV library for Python allows to process images in the real time. Using trained model we can recognize any objects that model was trained for.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/Linear-Regression-with-Numpy-and-Python/" class="image"><img src="images/lr.JPG" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Linear-Regression-with-Numpy-and-Python/"><h4>Linear Regression with Pure Math</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Algorithmic Machine Learning</b></li>
+													<li>Numpy</li>
+													<li>Matplotlib</li>
+												</ul>
+												<p>Building Linear Regression Model to find the linear relationship between two variables
+													(dependent and independent - y and x) and using it for forecasting future values of y while new set of sample X features given.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/Finding-Sentiment-among-Cutomers-with-Naive-Bayes/" class="image"><img src="images/nb.JPG" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Finding-Sentiment-among-Cutomers-with-Naive-Bayes/"><h4>Finding Sentiment among Customers</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Algorithmic Machine Learning</b></li>
+													<li>SkLearn</li>
+													<li>Multinomial Naive Bayes</li>
+												</ul>
+												<p>Naive Bayes is algorithm that works on theorem of probabilty what allows to predict the classification of unknown dataset.
+													Due to some simplifications, it outperforms other algorithms with speed, accuracy and simplicity.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/Decision-Tree-as-Supervised-Learning/" class="image"><img src="images/dtree.JPG" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Decision-Tree-as-Supervised-Learning/"><h4>Decision Maker with Decision Tree</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Algorithmic Machine Learning</b></li>
+													<li>SkLearn</li>
+													<li>DecisionTreeClassifier</li>
+												</ul>
+												<p>Decision Tree is a method that supports decision making process. It's used also for supervised learning in ML for gaining knowledge based on the examples input.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/Machine-Learning-for-Procurement/" class="image"><img src="images/ml.JPG" alt="" /></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Machine-Learning-for-Procurement/"><h4>Machine Learning in Procurement</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Algorithmic Machine Learning</b></li>
+													<li>Sklearn</li>
+													<li>LinearSVC</li>
+												</ul>
+												<p>Spend analysis is necessary for reviewing procurement spend to decrease costs, increase efficiency or improve supplier relationships.
+													 ML model allows to recognize a spend type based on its specification.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/AI-Procurement-Bot/" class="image"><img src="images/bot_chat.JPG" alt="" /></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/AI-Procurement-Bot/"><h4>AI Procurement Chat Bot</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Neural Deep Learning</b></li>
+													<li>Tensorflow</li>
+													<li>TFLearn</li>
+													<li>NLTK</li>
+												</ul>
+												<p>Utilizing Deep Learning for procurement bot that is able to answer most frequently asked questions regarding corporate internal web-shop.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/Support-Vector-Machine-with-Numpy-and-Python/" class="image"><img src="images/chart.JPG" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Support-Vector-Machine-with-Numpy-and-Python/"><h4>SVM with Pure Math</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Algorithmic Machine Learning</b></li>
+													<li>Numpy</li>
+													<li>Matplotlib</li>
+													<li>Sklearn</li>
+												</ul>
+												<p>Support Vector Machine is one of the machine learning algorithm that helps predict values for new data samples.
+													Training model is performed doing mathematical calculation based on the historical data</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/K-Nearest-Neighbors-with-Pure-Math/" class="image"><img src="images/knn.JPG" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/K-Nearest-Neighbors-with-Pure-Math/"><h4>K Nearest Neighbors with Pure Math</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Algorithmic Machine Learning</b></li>
+													<li>Numpy</li>
+													<li>Matplotlib</li>
+												</ul>
+												<p>K Nearest Neighbors is the algorithm that uses all of available classified cases for a model learning.
+													Thanks to that, when new case comes in, we can quickly classify it based on a similarity measurements.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/ML-with-JavaScript/" class="image"><img src="images/brainjs.JPG" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/ML-with-JavaScript/"><h4>ML with JavaScript</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-node-js">&nbsp&nbsp<b>Neural Deep Learning</b></li>
+													<li>NodeJS</li>
+													<li>Brain.js</li>
+												</ul>
+												<p>I been have associating JS with dynamic web-app's features so far.
+													To my surprise, with JS and brain.js library we can also build a neural networks that learn patterns and input-output relationships
+													for making future guesses when dealing with new realted issues.</p>
+											</div>
+										</article>
+
+							<!-- NEW SECTION -->
+
+										<h3 id="data_analytics">Data Analytics (5)</h3>
+										<article>
+											<a href="https://arturskrzeta.github.io/Best-Offer-Picker/" class="image"><img src="images/best_offer.jpg" alt="" /></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Best-Offer-Picker/"><h4>Best Supplier Offer Picker</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Python Script</b></li>
+													<li>Pandas</li>
+													<li>Numpy</li>
+												</ul>
+												<p>Having 5 offers from 5 suppliers on 1000 products and services can pose a challenge.
+													 Python helps to automate choosing a supplier with the best offer and to perform the analysis like percentage differences, achieved savings and more.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/KPI-Anomaly-Detection/" class="image"><img src="images/kpi.jpg" alt="" /></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/KPI-Anomaly-Detection/"><h4>KPI Anomaly Detection</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Python Script</b></li>
+													<li>Pandas</li>
+													<li>Numpy</li>
+													<li>Matplotlib</li>
+												</ul>
+												<p>Catching bad signals with anomaly detection allows to react on time.
+													Python script has algorithm built for detecting outliers based on mean, standard deviation and z-score calculation.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/Regular-Expression-with-Python/" class="image"><img src="images/regex.jpg" alt="" /></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Regular-Expression-with-Python/"><h4>Spend Classification with RegEx</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Python Script</b></li>
+													<li>Regular Expression</li>
+												</ul>
+												<p>I'm using Regular Expression to convert SAP commodity code to classify the spend.
+													For example 123-XXX-XXX code needs to be classified to Information Technology but 124-XXX-XXX needs to be classified to Office Supplies.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/Spark-for-Handling-Big-Data/" class="image"><img src="images/pyspark.jpg" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Spark-for-Handling-Big-Data/"><h4>Spark for Big Data</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Jupyter Notebook</b></li>
+													<li>Python</li>
+													<li>PySpark</li>
+												</ul>
+												<p>I utilise PySpark API to handle big data with Python.
+													The core idea behind Spark is MapReduce model which maps the data set into a collection of key-value pairs, and then reducing over all pairs with the same key getting aggregated values.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/From-Hadoop-to-PyDoop-for-Big-Data/" class="image"><img src="images/pydoop.JPG" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/From-Hadoop-to-PyDoop-for-Big-Data/"><h4>MapReduce with Hadoop</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Python Script</b></li>
+													<li>Hadoop</li>
+													<li>MapReduce</li>
+												</ul>
+												<p>Big Data can be characterized by 3 words: volume, velocity and variety.
+													Hadoop offers distributed storage and distributed processing of Big Data sets on computer cluster(s).
+													In the Project, I use PyDoop API for writing Hadoop MapReduce applications in Python.</p>
+											</div>
+										</article>
+
+								<!-- NEW SECTION -->
+
+										<h3 id="data_structures">Data Structures (6)</h3>
+										<article>
+											<a href="https://arturskrzeta.github.io/Managing-PostgreSQL-Objectively/" class="image"><img src="images/postgresql.JPG" alt="" /></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Managing-PostgreSQL-Objectively/"><h4>Managing PostgreSQL DB Objectively</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Python Script</b></li>
+													<li>PostgreSQL</li>
+												</ul>
+												<p>I apply Object Oriented Programming for managing PostgreSQL database where database has its own class along with methods of creating table, inserting data or selecting row(s).</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/Key-Document-Database-in-MongoDB/." class="image"><img src="images/mongo.JPG" alt="" /></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Key-Document-Database-in-MongoDB/."><h4>Key-Document Database in MongoDB</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Python Script</b></li>
+													<li>MongoDB Atlas</li>
+													<li>MongoEngine</li>
+													<li>Cloud database</li>
+												</ul>
+												<p>MongoDB is a database that stores data as JSON-like documents with no defined schema in advance.
+													Documents which plays roles of rows aren't restricted to the same number of columns. That gives a big flexibility in both retrieving and inserting data.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/LinkedList-for-Sequencing-User-Actions/" class="image"><img src="images/linkedlist.jpg" alt="" /></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/LinkedList-for-Sequencing-User-Actions/"><h4>Linked List for Sequencing User Actions</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Python Script</b></li>
+													<li>Data Structures</li>
+												</ul>
+												<p>Linked list is a data structure which is used when size of data is not fixed and we want to efficiently utilize our memory space.
+													In addition, linkage between list nodes is persistent what means we can simply identify their sequence.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/Modeling-Blockchain-with-Python/" class="image"><img src="images/blockchain.jpg" alt="" /></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Modeling-Blockchain-with-Python/"><h4>Blockchain Modeling with Python</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Python Script</b></li>
+												</ul>
+												<p>Modeling blockchain architecture along with its properties of hashing blocks and establishing dependencies between following blocks. Model built according to OOP.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/Object-Oriented-Design-with-UML-and-Python-Implementation/" class="image"><img src="images/uml.JPG" alt="" /></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Object-Oriented-Design-with-UML-and-Python-Implementation/"><h4>Object Oriented Design with UML</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Python Script</b></li>
+													<li>SQLite</li>
+												</ul>
+												<p>Translating UML diagram into Python code.
+													I'm feeding the sqlite3 database with objects data at the end.</p>
+											</div>
+										</article>
+
+										<article>
+												<a href="https://arturskrzeta.github.io/Hash-Table-with-Python/" class="image"><img src="images/hashtable.JPG" alt="" /></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Hash-Table-with-Python/"><h4>Hash Table Implementation in Python</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Python Script</b></li>
+												</ul>
+												<p>Data structure that maps a key to a value in the memeory slot.
+													 It uses hash function that converts a key into a hashed code wich is used for the index computing.
+													 Received index indicates a memeory slot where we can get a value from.</p>
+											</div>
+										</article>
+
+
+								<!-- NEW SECTION -->
+
+										<h3 id="process_automation">Process Automation (6)</h3>
+										<article>
+											<a href="https://arturskrzeta.github.io/RESTful-API-with-FLASK-and-SQLAlchemy/" class="image"><img src="images/restfulapi.JPG" alt="" /></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/RESTful-API-with-FLASK-and-SQLAlchemy/"><h4>RESTful API and HTTP Automated Tests</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Python Script</b></li>
+													<li>Flask</li>
+													<li>RESTful API</li>
+													<li>Pytest</li>
+													<li>SQLite</li>
+												</ul>
+												<p>RESTful API uses HTTP requests to help a client (web, mobile app, or client.py in the project) to interact with server's database.
+													Project has been written along with automated tests checking the Client-API-Server performance.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/Unit-and-Integration-Tests-in-Python/" class="image"><img src="images/tests.JPG" alt="" /></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Unit-and-Integration-Tests-in-Python/"><h4>Unit and Integration Testing</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Python Script</b></li>
+													<li>Unittest</li>
+													<li>Mock</li>
+												</ul>
+												<p>Writing code to a code that already exists in order to verify correctness of function's work.
+													That makes us sure the code works in accordance to programmer assumptions and software requirements.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/Asynchronous-Execution-with-Celery-and-Python/" class="image"><img src="images/asynchro.JPG" alt="" /></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Asynchronous-Execution-with-Celery-and-Python/"><h4>Asynchronous Selenium Tasking</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Python Script</b></li>
+													<li>Selenium</li>
+													<li>Pandas</li>
+													<li>Redis</li>
+													<li>Celery</li>
+												</ul>
+												<p>Running time-consuming tasks asynchronously means running them at the same time in parallel.
+													Long-time processing tasks being exeuted at once save a lot of time as opposed to launching them one by one (next starts once previous finishes).</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/Scraping-Data-from-Web-sites/" class="image"><img src="images/web-scraper.jpg" alt="" /></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Scraping-Data-from-Web-sites/"><h4>Scraping Data from Web-sites</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Python Script</b></li>
+													<li>BeatifulSoup</li>
+													<li>Matplotlib</li>
+												</ul>
+												<p>If bussines travelling is your regular thing, You probably pay more attention to currency rates.
+													With this script you can literally scrape a webpage from currencies you need.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/Bulk-Mailing-in-Outlook/" class="image"><img src="images/outlook.jpg" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Bulk-Mailing-in-Outlook/"><h4>Bulk Mailing in Outlook</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Python Script</b></li>
+												</ul>
+												<p>Bulk mailing is always the case for the automation. With Python, I can sent personalized emails for many recipients.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/Investment-Risk-Management-Program/" class="image"><img src="images/java_stock.JPG" alt="" /></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Investment-Risk-Management-Program/"><h4>Investment Risk Management Program</h4></a>
+												<ul class="features">
+													<li class="icon solid fa-laptop-code">&nbsp&nbsp<b>Java Program</b></li>
+												</ul>
+												<p>Program calculates entry, risk and profit price of an investment in order to assess the risk to reward ratio.
+													Once ratio is greater than 3 than it means reward is 3 times greater than undertaken risk what allows you to make transaction.
+													Once ratio is lower than 3 then it doesn't allow you to make transaction.</p>
+											</div>
+										</article>
+
+
+								<!-- NEW SECTION -->
+
+										<h3 id="algorithm">Algorithms (2)</h3>
+										<article>
+											<a href="https://arturskrzeta.github.io/Supplier-Coordinator-Stable-Matching-Algorithm/" class="image"><img src="images/stable_match.png" alt="" /></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Supplier-Coordinator-Stable-Matching-Algorithm/"><h4>Stable Match Algorithm in Procurement</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Python Script</b></li>
+												</ul>
+												<p>Both Suppliers and Project Coordinators have their own preferences against each other.
+													Algorithm helps to match a coordinator with a supplier so that all the partnerships could remain stable and bring mutual benefit.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/Optimal-Costs-in-Supply-Chain-Management/" class="image"><img src="images/optimal_costs.JPG" alt="" /></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Optimal-Costs-in-Supply-Chain-Management/"><h4>Optimal Costs of Goods Transportation</h4></a>
+												<ul class="features">
+													<li class="icon solid fa-laptop-code">&nbsp&nbsp<b>C++ Program</b></li>
+												</ul>
+												<p>In today's world, smart Supply Chain Management has never been that important.
+													Finding optimal costs of supplies is sometimes the matter of to be or not to be for a company.
+													I used a very popular algorithm for finding the shortest paths between nodes in a graph.
+													 I tailored the algorithm to the procurement's needs.</p>
+											</div>
+										</article>
+
+								<!-- NEW SECTION -->
+
+										<h3 id="data_workflow">Data Workflow (6)</h3>
+										<article>
+											<a href="https://arturskrzeta.github.io/Consuming-Many-Data-Streams-At-Once/" class="image"><img src="images/map.JPG" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Consuming-Many-Data-Streams-At-Once/"><h4>Consuming Many Data Streams At Once</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Python Script</b></li>
+													<li>Apache Kafka</li>
+													<li>PyKafka</li>
+												</ul>
+												<p>Processing data flowing in from different sources at once can be possible with Apache Kafka.
+													As a messaging central bus, Kafka bonds all independent microservices that produces data and redirect it to a consumer.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/Apache-Airflow-for-Workflows/" class="image"><img src="images/airflow.JPG" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Apache-Airflow-for-Workflows/"><h4>Create-Schedule-Monitor Workflows</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Python Script</b></li>
+													<li>Apache Airflow</li>
+												</ul>
+												<p>Apache Airflow is the workflow management system to create, schedule and monitor workflows.
+													In the project, I build scheduling workflow for scraping webpage for getting currencies rates, processing it with expense data and mailing an outcome.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/TCP-for-Client-Server-with-Database-Modeling/" class="image"><img src="images/server-client.JPG" alt="" /></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/TCP-for-Client-Server-with-Database-Modeling/"><h4>Client-Server Data Exchange with TCP</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Python Script</b></li>
+													<li>SQLite</li>
+													<li>Sockets</li>
+												</ul>
+												<p>TCP is the common transport protocol that ensures reliable exchange of data betwen connected programms accross the network.
+												In the project, I model the connection: client - server - database.
+												Data exchange between client and server is performed with TCP. Server saves client's data in the databse.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/GraphQL-instead-of-REST-for-API-Design/" class="image"><img src="images/graphql.JPG" alt="" /></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/GraphQL-instead-of-REST-for-API-Design/"><h4>GraphQL instead of REST for API Design</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-node-js">&nbsp&nbsp<b>NodeJS</b></li>
+													<li>GraphQL</li>
+												</ul>
+												<p>We can find GrapQL as an alternative for REST when developing API that boost web-app performance.
+													Instead of hitting many endpoints and getting all the data at once with REST, with GraphQL you can hit only one endpoint determining in query what data you actually need.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/Data-Warehouse-CSV-Python-Tableau-Server-BA-New-Data/" class="image">
+												<img src="images/dashboard.JPG" alt="" style="padding-bottom: 10px; border-bottom: 1px solid #a1cec2a1; border-left: 1px solid #a1cec2a1;"/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Data-Warehouse-CSV-Python-Tableau-Server-BA-New-Data/"><h4>Data Warehousing for Business Insights</h4></a>
+												<ul class="features">
+													<li class="icon solid fa-database">&nbsp&nbsp<b>Data Proecssing</b></li>
+													<li>CSV</li>
+													<li>Python</li>
+													<li>Pandas</li>
+													<li>Tableau</li>
+												</ul>
+												<p>From data collecting to business insights process:<br>
+														1. Flat files.<br>
+														2. Python ETL.<br>
+														3. Tableau dashboard.<br>
+														4. Server publishing.<br>
+														5. Business Analysis.<br>
+												</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/Data-Pipeline-with-Flask-and-SQLite-in-Python" class="image"><img src="images/pipeline.JPG" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Data-Pipeline-with-Flask-and-SQLite-in-Python/"><h4>Handling Data in Steps in Data Pipelines</h4></a>
+												<ul class="features">
+													<li class="icon solid fa-database">&nbsp&nbsp<b>Data Proecssing</b></li>
+													<li>Python</li>
+													<li>Flask</li>
+													<li>SQLite</li>
+												</ul>
+												<p>Data Pipeline: <br>
+													1. Company A streams data to web-server.<br>
+													2. Company B requests web-server for receiving data stream.<br>
+													3. Company B process the inflowing data.<br>
+													4. Company B feeds database.
+												</p>
+											</div>
+										</article>
+
+								<!-- NEW SECTION -->
+
+										<h3 id="user_interface">User Interface (2)</h3>
+										<article>
+											<a href="https://arturskrzeta.github.io/UI-with-ReactJS/" class="image"><img src="images/react.JPG" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/UI-with-ReactJS/"><h4>ReactJS for building User Interfaces</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-react">&nbsp&nbsp<b>ReactJS</b></li>
+													<li>Postman</li>
+													<li>REST API</li>
+													<li>Json-server</li>
+												</ul>
+												<p>ReactJS is the JavaScript library for building fast and interactive User Interfaces for web-applications.
+													ReactJS reacts to each change of web-page element rendering only that HTML element instead of entire web-page.
+												 	This selective rendering gives a big performance boost.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/Data-Vizualization-with-JavaScript/" class="image"><img src="images/data_visualization_js.JPG" alt="" /></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Data-Vizualization-with-JavaScript/"><h4>Data Visualization with JavaScript</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-js-square">&nbsp&nbsp<b>JavaScript</b></li>
+													<li>ReactJs</li>
+													<li>Chart.js</li>
+												</ul>
+												<p>Making usage of chart.js as open-source library for data visualization.
+													We can simply embed a chart into HTML structure rendering it in a canvas tag.</p>
+											</div>
+										</article>
+
+								<!-- NEW SECTION -->
+
+										<h3 id="devops">DevOps (4)</h3>
+										<article>
+											<a href="https://arturskrzeta.github.io/Application-in-a-Container/" class="image"><img src="images/docker.JPG" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Application-in-a-Container/"><h4>Application in a Container</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-docker">&nbsp&nbsp<b>Docker</b></li>
+													<li>DockerFile</li>
+													<li>Kubernetes</li>
+													<li>KubeCTL</li>
+												</ul>
+												<p>Wrapping your entire application's code along with all its dependencies and input files/data with one docker container makes it portable and runnable by another developer on its local machine.
+													Containers includes everything to create required environment to run application successfully.
+													That way, we ensure reproducibility and reliability of app's work regardless of whose computer runs the application.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/App-Version-Tracking-with-Git/" class="image"><img src="images/git.JPG" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/App-Version-Tracking-with-Git/"><h4>App Version Tracking with Git</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-git-square">&nbsp&nbsp<b>Git</b></li>
+													<li>GitHub</li>
+												</ul>
+												<p>Git allows us to track any changes in our project's files remembering who mase what and when.
+													Usually, used for coordinating work among developers co-working on source code during software development.
+													I use Git for versioning my data science projects as well as for pulling and pushing things on GitHub.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/App-Lifecycle-with-CICD/" class="image"><img src="images/cicd.JPG" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/App-Lifecycle-with-CICD/"><h4>App's Lifecycle with CICD</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-jenkins">&nbsp&nbsp<b>Jenkins</b></li>
+													<li>GitHub</li>
+													<li>DockerHub</li>
+													<li>CI/CD</li>
+												</ul>
+												<p>Continuous Integration and Continuous Delivery/Deployment is a set of good development practices when working on an application.
+													CI/CD pipelines ensure ongoing automation and continuous monitoring throughout the whole lifecycle of apps, starting from integration and testing phases and finishing with delivery and server deployment.
+												</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/Ansible-for-VM-Provisioning" class="image"><img src="images/ansible.JPG" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Ansible-for-VM-Provisioning"><h4>Ansible for VM Provisioning</h4></a>
+												<ul class="features">
+													<li class="icon solid fa-server">&nbsp&nbsp<b>Vagrant</b></li>
+													<li>Ansible</li>
+													<li>VirtualBox</li>
+													<li>IaC</li>
+												</ul>
+												<p>Ansible provides Infrastructure as Code solutions for automated provisioning through machine-readable files.
+													We just need to define, in humans-alike language, the state on how we want to configure our virtual machine and run it.</p>
+											</div>
+										</article>
+
+								<!-- NEW SECTION -->
+
+										<h3 id="programming_practices">Programming practices (4)</h3>
+										<!-- <article>
+											<a href="#" class="image"><img src="images/bigo.JPG" alt=""/></a>
+											<div class="inner">
+												<a href="#"><h4>Big O Notation</h4></a>
+												<ul class="features">
+													<li class="icon solid fa-code">&nbsp&nbsp<b>Big O</b></li>
+												</ul>
+												<p>In this section, I try my best to collect and describe and first of all put down my understanding on how to implement all the techniques that contribute to the clean code of an application.
+													I touch here both theoretical principles and python libraries that assists with feedback on Python's syntax.</p>
+											</div>
+										</article> -->
+										<article>
+											<a href="https://arturskrzeta.github.io/Keeping-a-Code-Clean/" class="image"><img src="images/cleancode.JPG" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Keeping-a-Code-Clean/"><h4>Keeping Python Code Clean</h4></a>
+												<ul class="features">
+													<li class="icon solid fa-code">&nbsp&nbsp<b>Clean Code</b></li>
+													<li>SOLID</li>
+													<li>KIS</li>
+												</ul>
+												<p>In this section, I try my best to collect and describe and first of all put down my understanding on how to implement all the techniques that contribute to the clean code of an application.
+													I touch here both theoretical principles and python libraries that assists with feedback on Python's syntax.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/Design-Patterns-in-Python/" class="image"><img src="images/designpatterns.JPG" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Design-Patterns-in-Python/"><h4>Design Patterns in Python</h4></a>
+												<ul class="features">
+													<li class="icon solid fa-code">&nbsp&nbsp<b>Design Patterns</b></li>
+													<ii>OOP</li>
+												</ul>
+												<p>Common reusable solutions to common problems in an application design.
+														We can use them in form of templates that can be implemented and modified due to the app's requirements.
+														Design patterns are mostly used in the object-oriented programming where defines relationships and interactions between classes or objects.
+														There are different patterns according to the nature of the problem we want to solve.
+													</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/My-In-Depth-Python-Comprehension/" class="image"><img src="images/what_is_python.JPG" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/My-In-Depth-Python-Comprehension/"><h4>My In Depth Python Comprehension</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Python</b></li>
+												</ul>
+												<p>In this section, I describe all my knowledge on Python I have managed to gather so far.
+														It contains Python pure architecture, concepts and language-specific properties.</p>
+											</div>
+										</article>
+										<article>
+											<a href="https://arturskrzeta.github.io/Functional-Programming-in-Python/" class="image"><img src="images/functional_programming.JPG" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Functional-Programming-in-Python/"><h4>Functional Programming in Python</h4></a>
+												<ul class="features">
+													<li class="icon brands fa-python">&nbsp&nbsp<b>Python</b></li>
+												</ul>
+												<p>Functional programming simplifies things to data input and result output avoiding any state changes that may have impact on the output.
+													Python itself is not a functional programming language strictly.
+													However, it has some features suitable for implementing programs in a functional style.</p>
+											</div>
+										</article>
+
+								<!-- NEW SECTION -->
+
+										<h3 id="cloud_services">Cloud Services (2)</h3>
+										<article>
+											<a href="https://arturskrzeta.github.io/My-Clouds-Comprehension/" class="image"><img src="images/cloud.JPG" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/My-Clouds-Comprehension/"><h4>My Comprehension of AWS Services</h4></a>
+												<ul class="features">
+													<li class="icon solid fa-cloud">&nbsp&nbsp<b>Cloud computing</b></li>
+													<li>AWS</li>
+												</ul>
+												<p>In this section I collect as much information as I manage to gain about cloud computing and cloud services with AWS.
+													It includes my understanding, insights, conclusions that I get during my learning process.</p>
+											</div>
+										</article>
+
+										<article>
+											<a href="https://arturskrzeta.github.io/Exploring-Clouds-on-GCP/" class="image"><img src="images/gcp.JPG" alt=""/></a>
+											<div class="inner">
+												<a href="https://arturskrzeta.github.io/Exploring-Clouds-on-GCP/"><h4>Exploring Clouds on GCP</h4></a>
+												<ul class="features">
+													<li class="icon solid fa-cloud">&nbsp&nbsp<b>Cloud computing</b></li>
+													<li>GCP</li>
+												</ul>
+												<p>I continue with learning "clouds" on the example of Google Cloud Platform's services.
+													I enclose my insights, schemas and explanation on how the things work as well as some differences between other cloud services providers.</p>
+											</div>
+										</article>
+
+									</div>
 								</div>
 							</section>
 
 						<!-- Four -->
 							<section id="four">
 								<div class="container">
-									<h3>Setup</h3>
-									<h5>No specific installation required.</h5>
+									<h3>Me</h3>
+									<p>A few words characterizing myself:</p>
+									<ul class="feature-icons">
+										<li class="icon solid fa-plus">Making the most of available technology to work with data.</li>
+										<li class="icon solid fa-plus">Trying to automate as much as possible.</li>
+										<li class="icon solid fa-plus">Wrapping it up with nice looking User Interface.</li>
+										<li class="icon solid fa-plus">Relying on manageable database.</li>
+										<li class="icon solid fa-plus">Being fascinated about Big Data and Cloud Computing.</li>
+										<li class="icon solid fa-plus">Spending free time at gym powerlifting.</li>
 									<ul>
-										<li>npm</li>
-										<li>ReactJs</li>
-										<li>ExpressJS</li>
-									</ul>
 								</div>
 							</section>
 
-							<section id="five">
-								<div class="container">
-									<h3>Source Code</h3>
-									<p>You can view the source code: <a href="https://github.com/ArturSkrzeta/Learn-SQL-Application/tree/main/project">HERE</a></p>
-									<p>&nbsp</p>
-								</div>
-							</section>
+							<a href="#navi" class="anchor"><span style='font-size:16px;'>Up</span></a>
 
 					</div>
 
 				<!-- Footer -->
 					<section id="footer">
 						<div class="container">
-							<a href="https://arturskrzeta.github.io/" style="padding-bottom:10px;">Back to Portfolio</a>
+							<ul class="copyright">
+								<li>&copy; Artur Skrzeta Portfolio. All rights reserved.</li>
+							</ul>
 						</div>
 					</section>
 
